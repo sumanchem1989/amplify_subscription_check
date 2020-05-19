@@ -1,0 +1,14 @@
+type Todo
+  @model(subscriptions: null)
+  @auth(rules: [{ allow: owner, operations: [create, update, delete] }]) {
+  id: ID!
+  name: String!
+  description: String
+  owner: String
+}
+
+type Subscription {
+  onCreateTodo(owner: String): Todo @aws_subscribe(mutations: ["createTodo"])
+  onUpdateTodo(owner: String): Todo @aws_subscribe(mutations: ["updateTodo"])
+  onDeleteTodo(owner: String): Todo @aws_subscribe(mutations: ["deleteTodo"])
+}

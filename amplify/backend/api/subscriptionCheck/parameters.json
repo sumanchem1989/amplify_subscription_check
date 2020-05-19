@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "subscriptionCheck",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authsubscriptioncheck027a1b85",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
