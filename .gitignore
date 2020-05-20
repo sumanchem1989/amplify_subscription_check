@@ -28,3 +28,4 @@ amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json
 amplifyxc.config
+../../expo/subscription_check/amplify/mock-data

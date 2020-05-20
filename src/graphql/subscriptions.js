@@ -2,32 +2,32 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateTodo = /* GraphQL */ `
-  subscription OnCreateTodo($owner: String) {
-    onCreateTodo(owner: $owner) {
+  subscription OnCreateTodo($receiverUsername: String, $name: String) {
+    onCreateTodo(receiverUsername: $receiverUsername, name: $name) {
       id
       name
       description
-      owner
+      receiverUsername
     }
   }
 `;
 export const onUpdateTodo = /* GraphQL */ `
-  subscription OnUpdateTodo($owner: String) {
-    onUpdateTodo(owner: $owner) {
+  subscription OnUpdateTodo($receiverUsername: String, $name: String) {
+    onUpdateTodo(receiverUsername: $receiverUsername, name: $name) {
       id
       name
       description
-      owner
+      receiverUsername
     }
   }
 `;
 export const onDeleteTodo = /* GraphQL */ `
-  subscription OnDeleteTodo($owner: String) {
-    onDeleteTodo(owner: $owner) {
+  subscription OnDeleteTodo($receiverUsername: String, $name: String) {
+    onDeleteTodo(receiverUsername: $receiverUsername, name: $name) {
       id
       name
       description
-      owner
+      receiverUsername
     }
   }
 `;

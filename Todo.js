@@ -16,6 +16,7 @@ const Todo = () => {
   const [owner, setOwner] = useState(null);
   const [todos, setTodos] = useState([]);
   const [users, setUsers] = useState(["sk.das", "smnkd89", "sumanchem1989"]);
+  const [subscribing, setSubscribing] = useState(false);
 
   useEffect(() => {
     Auth.currentAuthenticatedUser()
@@ -29,24 +30,26 @@ const Todo = () => {
   useEffect(() => {
     // fetchTodos();
     let subscription;
-    if (owner) {
-      users.forEach((user) => {
-        subscription = API.graphql(
-          graphqlOperation(subscriptions.onCreateTodo, {
-            owner: user,
-          })
-        ).subscribe({
-          next: (todoData) => {
-            console.log({ todoData });
-            setTodos((state) => [todoData.value.data.onCreateTodo, ...state]);
-          },
-        });
+    users.forEach((user) => {
+      subscription = API.graphql(
+        graphqlOperation(subscriptions.onCreateTodo, {
+          owner: user,
+        })
+      ).subscribe({
+        next: (todoData) => {
+          console.log({ todoData });
+          setTodos((state) => [todoData.value.data.onCreateTodo, ...state]);
+        },
       });
-    }
+      // Stop receiving data updates from the subscription
+      // subscription.unsubscribe();
+    });
 
-    // Stop receiving data updates from the subscription
+    setTimeout(() => console.log("hello"), 3000);
+
+    // setSubscribing(true);
     () => subscription.unsubscribe();
-  }, [owner]);
+  }, []);
 
   function setInput(key, value) {
     setFormState({ ...formState, [key]: value });

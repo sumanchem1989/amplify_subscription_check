@@ -10,7 +10,7 @@ export const createTodo = /* GraphQL */ `
       id
       name
       description
-      owner
+      receiverUsername
     }
   }
 `;
@@ -23,7 +23,7 @@ export const updateTodo = /* GraphQL */ `
       id
       name
       description
-      owner
+      receiverUsername
     }
   }
 `;
@@ -36,7 +36,7 @@ export const deleteTodo = /* GraphQL */ `
       id
       name
       description
-      owner
+      receiverUsername
     }
   }
 `;

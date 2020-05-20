@@ -7,7 +7,7 @@ export const getTodo = /* GraphQL */ `
       id
       name
       description
-      owner
+      receiverUsername
     }
   }
 `;
@@ -22,7 +22,7 @@ export const listTodos = /* GraphQL */ `
         id
         name
         description
-        owner
+        receiverUsername
       }
       nextToken
     }
